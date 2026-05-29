@@ -1,0 +1,64 @@
+{
+  "nda": {
+    "signature": "1762338507.29441_64728",
+    "analysis": {
+      "total_placeholders": 16,
+      "placeholders": [
+        "The Parties now desire to record the terms and conditions governing the protection, use, and disclosure of such confidential information shared by [\u25cf] with [\u25cf] during the course of their collaboration.",
+        "Email\t\t\t: \t[\u25cf]",
+        "Project means [\u25cf];",
+        "For and on behalf of [\u25cf]",
+        "Address\t\t: \t[\u25cf]",
+        "Email\t\t\t:\t[\u25cf]",
+        "Kind Attention\t: \t[\u25cf]",
+        "This Agreement shall come into full force and effect on and from the Effective Date, which shall mean the date [\u25cf]. The terms, conditions, and obligations set forth herein shall accordingly be deemed to have commenced from such Effective Date.",
+        "[\u25cf], having its head office at [\u25cf] (hereinafter referred to as \u201c[\u25cf]\u201d or \u201cDisclosing Party\u201d which expression shall, unless repugnant to the context or meaning thereof, be deemed to mean and include its, affiliates, subsidiaries, successors and permitted assigns);",
+        "[\u25cf], having its head office at [\u25cf] (hereinafter referred to as \u201c[\u25cf]\u201d or \u201cReceiving Party\u201d which expression shall, unless repugnant to the context or meaning thereof, be deemed to mean and include its, affiliates, subsidiaries, successors and permitted assigns).",
+        "[\u25cf]/Disclosing Party and [\u25cf]/Receiving Party are hereinafter collectively referred to as \u201cthe Parties\u201d and individually as \u201cthe Party\u201d.",
+        "This Non-Disclosure Agreement (hereinafter referred to as the \u201cAgreement\u201d) made and entered into at Ahmedabad, this [\u25cf] day of October, 2025",
+        "All Disputes that remain unresolved after completion of the Discussion Period shall be referred to and finally resolved by arbitration in accordance with the provisions of the Arbitration and Conciliation Act, 1996, including any statutory modifications or reenactments thereof for the time being in force. The seat and venue of arbitration shall be [\u25cf]. The arbitral tribunal shall consist of sole arbitrator to be mutually appointed by the Parties. The award of the arbitrator shall be final and binding upon the Parties.",
+        "[Insert an introductory paragraph about the Disclosing Party];",
+        "[Insert an introductory paragraph about the Receiving Party];",
+        "This Agreement shall be governed by and construed in accordance with the laws of the Republic of India. Subject to the provisions of Clause 12.6 (Arbitration), the courts situated at [\u25cf] shall have exclusive jurisdiction in relation to any dispute, suit, proceeding, or claim arising out of or in connection with this Agreement."
+      ],
+      "categories": {
+        "company_info": [
+          "[\u25cf], having its head office at [\u25cf] (hereinafter referred to as \u201c[\u25cf]\u201d or \u201cDisclosing Party\u201d which expression shall, unless repugnant to the context or meaning thereof, be deemed to mean and include its, affiliates, subsidiaries, successors and permitted assigns);",
+          "[Insert an introductory paragraph about the Disclosing Party];"
+        ],
+        "individual_info": [
+          "[\u25cf], having its head office at [\u25cf] (hereinafter referred to as \u201c[\u25cf]\u201d or \u201cReceiving Party\u201d which expression shall, unless repugnant to the context or meaning thereof, be deemed to mean and include its, affiliates, subsidiaries, successors and permitted assigns).",
+          "[\u25cf]/Disclosing Party and [\u25cf]/Receiving Party are hereinafter collectively referred to as \u201cthe Parties\u201d and individually as \u201cthe Party\u201d.",
+          "[Insert an introductory paragraph about the Receiving Party];"
+        ],
+        "agreement_details": [
+          "This Agreement shall come into full force and effect on and from the Effective Date, which shall mean the date [\u25cf]. The terms, conditions, and obligations set forth herein shall accordingly be deemed to have commenced from such Effective Date.",
+          "All Disputes that remain unresolved after completion of the Discussion Period shall be referred to and finally resolved by arbitration in accordance with the provisions of the Arbitration and Conciliation Act, 1996, including any statutory modifications or reenactments thereof for the time being in force. The seat and venue of arbitration shall be [\u25cf]. The arbitral tribunal shall consist of sole arbitrator to be mutually appointed by the Parties. The award of the arbitrator shall be final and binding upon the Parties.",
+          "This Agreement shall be governed by and construed in accordance with the laws of the Republic of India. Subject to the provisions of Clause 12.6 (Arbitration), the courts situated at [\u25cf] shall have exclusive jurisdiction in relation to any dispute, suit, proceeding, or claim arising out of or in connection with this Agreement."
+        ],
+        "contact_info": [
+          "Email\t\t\t: \t[\u25cf]",
+          "Address\t\t: \t[\u25cf]",
+          "Email\t\t\t:\t[\u25cf]",
+          "Kind Attention\t: \t[\u25cf]"
+        ],
+        "project_info": [
+          "Project means [\u25cf];"
+        ],
+        "signature_blocks": [
+          "For and on behalf of [\u25cf]"
+        ],
+        "other": [
+          "The Parties now desire to record the terms and conditions governing the protection, use, and disclosure of such confidential information shared by [\u25cf] with [\u25cf] during the course of their collaboration.",
+          "This Non-Disclosure Agreement (hereinafter referred to as the \u201cAgreement\u201d) made and entered into at Ahmedabad, this [\u25cf] day of October, 2025"
+        ]
+      },
+      "analysis_date": "2025-11-06T15:02:57.442718",
+      "document_structure": {
+        "total_paragraphs": 194,
+        "total_tables": 0
+      }
+    },
+    "last_analyzed": "2025-11-06T15:02:57.442807"
+  }
+}

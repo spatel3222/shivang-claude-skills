@@ -1,0 +1,35 @@
+{
+  "skill_name": "fix-bug",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Just sent a message in the playground and the brain crashed with this in the terminal: 'tool() takes 0 positional arguments but 1 was given'. Started happening after we synced the kernel changes to the acme-automation fork yesterday. Plain text was fine before. Look at it?",
+      "expected_output": "Skill triggers, reads CLAUDE.md + SHIPPED.md + recent commits, identifies fork-drift bucket (bare @tool decorator in fork's builtins.py + expense_store.py), proposes fix syncing master's keyword-only @tool(input_schema=...) version, appends BUG row to Code/DevLog/BUGS.md as in-progress, runs pytest after fix, updates BUG row to fixed, commits with fix(<area>) message.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I clicked the + button in the playground, attached caption-linkedin.md (small markdown file, ~1.5 KB), then asked Jarvis to summarize. It just replied 'no file attached'. Debug Panel Tools tab is empty, so render_component never fired. Maybe related to the attachments PR we shipped earlier today?",
+      "expected_output": "Skill triggers, reads SHIPPED.md to find the 2026-05-06 attachments commit, traces the attachment flow (UI tierRouteAndStage → handleSendChat → kernel chat ComponentResult → attachment_resolver → run_turn → _build_user_content), identifies whether bytes reach _build_user_content, walks the cross-impact matrix, fixes minimum, adds regression test under tests/test_attachment_resolver.py or similar, runs full pytest suite, commits.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Render_component shows in the Tools tab when I say 'log me in', so kernel-side it's firing — but the login modal never appears in the browser. Just chat text. This is broken now; pretty sure it worked yesterday before the chat-loop fix.",
+      "expected_output": "Skill triggers, identifies regression bucket (cross-references SHIPPED.md for the recent chat-loop ComponentResult fix), traces the React handleSchema dispatch in PlaygroundApp.tsx, finds setOverlaySchema(null)/setAppState('chat') wiping overlays on chat re-render, fixes by preserving overlay state with setAppState((prev) => prev === 'overlay' ? 'overlay' : 'chat'), appends BUG row, runs npm run build for UI verification, walks cross-impact (overlay/chat/attachments/ingest_document), commits.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "I want to add a 'compose tweet' feature to the playground.",
+      "expected_output": "Skill should NOT trigger (this is a feature request, not a bug report). Should be routed to /write_prd → /write_code workflow instead.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Refactor the workflow.py file — it's getting messy.",
+      "expected_output": "Skill should NOT trigger (this is a refactor request, not a bug). Should be handled directly or via /write_prd if scope is large.",
+      "files": []
+    }
+  ]
+}

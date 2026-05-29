@@ -1,0 +1,39 @@
+{
+  "hastibhalodiya.work@gmail.com": {
+    "full_name": "Hasti Bhalodiya",
+    "email": "hastibhalodiya.work@gmail.com",
+    "address": "Sahjanand tower, Above Sahjanand Chashma Ghar, opposite Jivaraj Park Metro Station, Vejalpur Road, Jagadamba Soceity, Vejalpur, Ahmedabad, Gujarat, India",
+    "professional_description": "UI/UX designer specializing in frontend development and user experience design",
+    "project_type": "Full Stack Development Services",
+    "created": "2025-11-06T15:02:57.470302",
+    "last_updated": "2025-11-06T15:07:18.435706",
+    "documents_created": 2,
+    "project_history": [
+      {
+        "project_type": "Full Stack Development Services",
+        "date": "2025-11-06T15:02:57.470436"
+      },
+      {
+        "project_type": "Frontend UI/UX Design Services",
+        "date": "2025-11-06T15:07:18.435708"
+      }
+    ],
+    "short_name": "Hasti"
+  },
+  "test@example.com": {
+    "full_name": "Test User",
+    "email": "test@example.com",
+    "address": "123 Test Street, Test City, Test State 12345",
+    "professional_description": "Test developer for skill validation",
+    "project_type": "Full Stack Development Services",
+    "created": "2025-11-06T15:21:36.467033",
+    "last_updated": "2025-11-06T15:21:36.467196",
+    "documents_created": 1,
+    "project_history": [
+      {
+        "project_type": "Full Stack Development Services",
+        "date": "2025-11-06T15:21:36.467198"
+      }
+    ]
+  }
+}

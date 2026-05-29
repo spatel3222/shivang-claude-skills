@@ -1,0 +1,22 @@
+[
+  {"query": "the playground brain just crashed with 'tool() takes 0 positional arguments but 1 was given' when I sent my first message. happened right after I cp'd the kernel files to the fork.", "should_trigger": true},
+  {"query": "render_component fires in the Debug Panel tools tab but the login modal never shows up in the browser, only chat text. pretty sure this regressed today after the chat-loop fix", "should_trigger": true},
+  {"query": "I just hit a bug where attaching a 1.5KB .md file via the + button does nothing — Jarvis replies 'no file attached'. summary path is broken", "should_trigger": true},
+  {"query": "ingest_document second call isn't hitting the cache. document_ai_extract is being re-run every time instead of returning cached: true. text.md exists at ./data/knowledge/playground/<sha>/", "should_trigger": true},
+  {"query": "this is broken — workdir control pill says linked but artifact_write frames go to ./logs/artifacts fallback even though the FSA permission was granted", "should_trigger": true},
+  {"query": "regression in the canonicalize path — mode=both is hard-failing instead of partial-success when canonicalize_document errors. should be returning ready_for_summary=true with canonicalize_error set", "should_trigger": true},
+  {"query": "the WS connection drops about 30 seconds after the brain starts. terminal shows 'broker.detach' fired. browser still shows the chat composer but messages don't send", "should_trigger": true},
+  {"query": "AssertionError in tests/test_uploads.py::test_handle_upload_anthropic_dedupe after the latest pull. trace points to anthropic_files.upload_file returning None", "should_trigger": true},
+  {"query": "X stopped working — when I unlink the workdir, the next artifact_write frame doesn't fall back to logs, just silently drops", "should_trigger": true},
+  {"query": "/admin/canonicalize returns 500 when I upload a .md file via the file input. text path works fine. logs say 'NoneType has no attribute decode'", "should_trigger": true},
+  {"query": "I want to add a 'compose tweet' feature to the playground that calls the Twitter API", "should_trigger": false},
+  {"query": "refactor workflow.py — it's a 700-line god file and I want to split it into router/, gates/, and execute/ modules", "should_trigger": false},
+  {"query": "what's the difference between Anthropic Files API and Google Document AI for our scanned-PDF ingestion pipeline?", "should_trigger": false},
+  {"query": "review my pull request — feat/playground-attachments-workdir, branch is up to date with dev", "should_trigger": false},
+  {"query": "write a PRD for a /admin/knowledge UI page that browses the cache and lets admins accept canonicalize candidates", "should_trigger": false},
+  {"query": "explain how the chat loop in playground_brain.conversation_loop awaits a ComponentResult and pushes assistant replies back via broker.send_update", "should_trigger": false},
+  {"query": "is there a way to make the + button popover use Radix Popover from Shadcn instead of the click-outside dropdown we wrote?", "should_trigger": false},
+  {"query": "I just sent the team a Slack message about the launch, can you summarize what shipped this week into a LinkedIn post", "should_trigger": false},
+  {"query": "the FSA showDirectoryPicker spec says handles can be persisted in IndexedDB across reloads but the user must re-permission. why does Chrome implement it this way?", "should_trigger": false},
+  {"query": "set up a cron that runs the /loop /babysit-prs every 5 minutes during dev hours", "should_trigger": false}
+]
