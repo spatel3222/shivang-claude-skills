@@ -194,6 +194,13 @@ Update the BUGS.md row with: root cause one-liner (the **Gap**), fix commit sha 
 
 Per `CLAUDE.md`: pushing and opening PRs are explicit user actions. Leave the commit on the local branch and report the sha. The user decides whether to push.
 
+### 12. If the fix was deployed and touched scaling/infra/DB — invoke `/deployment-cost-analysis`
+
+Only when the fix is actually deployed AND it altered scaling, infrastructure, schedulers, or the
+database (e.g., changed `min-instances`, a worker, a Cloud Run config, an Atlas connection). Hand
+off to `/deployment-cost-analysis` so a cost regression is caught the same day rather than after
+the lagging invoice. Skip it for ordinary code-only bug fixes — most fixes do not need it.
+
 ## Output format — every fix-bug session ends with this block
 
 The four-line frame is non-negotiable. Show it at the START (after step 3 boils it down) AND at the END (in this block). The Gap line is the load-bearing element of the whole skill — it's what gets tested, what gets commit-messaged, and what future-you searches for.

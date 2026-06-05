@@ -451,7 +451,16 @@ For UI changes that REQUIRE browser interaction the e2e suite can't simulate (dr
 - [ ] User validation received before next phase
 - [ ] Git commit + PR (if repo has remote)
 - [ ] Worktrees from parallel dispatch all merged + cleaned up (no stragglers)
+- [ ] **If this change was deployed (or altered scaling/infra/DB): invoke `/deployment-cost-analysis`** — post-deploy cost guardrail
 ```
+
+**Post-deploy cost guardrail — invoke `/deployment-cost-analysis`:** If the wrapped change was
+deployed, or touched scaling, infrastructure, schedulers, or the database, hand off to
+`/deployment-cost-analysis` after WRAP. Why: deploys silently carry forward expensive scaling and
+DB settings (always-on instances, uncapped Atlas auto-scaling), and the dollar console lags
+24-48h, so a cost regression runs for days unseen. That skill audits the config, validates real
+spend via near-real-time instance-time, and — with user consent — applies low-risk fixes or hands
+code changes back here. Skip it only for pure local/code-only changes that were not deployed.
 
 ---
 
