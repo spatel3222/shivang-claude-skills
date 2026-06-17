@@ -1,6 +1,6 @@
 ---
 name: content-writer-distributor
-description: Creates ready-to-publish content for Blog, Instagram carousel, LinkedIn carousel, LinkedIn post, WhatsApp, and Email from a single topic. Adapts visual styling (colors + fonts) to the brand guidelines or design system found in the current working directory; voice and tone stay consistent. Use this skill whenever the user wants to create multi-channel content, distribute content across platforms, repurpose a blog post into other formats, or when the marketing-advisor orchestrator delegates content creation. Also trigger when the user says things like "create content about...", "distribute this to all channels", "write a blog and Instagram post about...", "push this to all platforms", "repurpose this for Instagram and WhatsApp", or "I wrote a blog, now make the carousel and WhatsApp message".
+description: Creates ready-to-publish content for Blog, Instagram carousel (GIF), LinkedIn carousel (PDF), and LinkedIn post from a single topic. Adapts visual styling (colors + fonts) to the brand guidelines or design system found in the current working directory; voice and tone stay consistent. Use this skill whenever the user wants to create multi-channel content, distribute content across platforms, repurpose a blog post into other formats, or when the marketing-advisor orchestrator delegates content creation. Also trigger when the user says things like "create content about...", "distribute this to all channels", "write a blog and Instagram post about...", or "push this to all platforms".
 ---
 
 # Content Writer & Distributor
@@ -16,13 +16,12 @@ Outreach/content/YYYY-MM-DD-{slug}/
 ├── blog.md                    # Blog post + 20-field CMS frontmatter
 ├── blog.json                  # CMS JSON (via blog_cms_prep.py)
 ├── carousel-slides.md         # Slide descriptions (creative source)
-├── carousel.html              # HTML slides 1080x1350 (via /create-ui)
+├── carousel.html              # HTML slides 1080x1080 (via /create-ui)
+├── carousel.gif               # Animated GIF for Instagram (Playwright → GIF)
 ├── caption-instagram.md       # Instagram caption + hashtags
 ├── caption-linkedin.md        # LinkedIn caption (Shivang's voice)
 ├── carousel-linkedin.pdf      # PDF for LinkedIn carousel upload
-├── reel-script.md             # Instagram Reel script (HeyGen-ready)
-├── whatsapp.md                # WhatsApp broadcast message
-└── email.md                   # Email/newsletter snippet
+└── reel-script.md             # Instagram Reel script (HeyGen-ready)
 ```
 
 Example: `Outreach/content/2026-04-01-ai-contract-review/`
@@ -55,17 +54,15 @@ These are browse-only views. The content folder is canonical.
 | 1 | **Blog** | `blog.md` | Markdown + 20-field CMS frontmatter | Auto |
 | 2 | **Blog CMS JSON** | `blog.json` | JSON (via `blog_cms_prep.py`) | Auto |
 | 3 | **Carousel slides** | `carousel-slides.md` | Markdown (creative source) | Auto |
-| 4 | **Carousel HTML** | `carousel.html` | HTML 1080x1350 (via `/create-ui`) | Auto |
-| 5 | **Instagram caption** | `caption-instagram.md` | Caption + hashtags | Auto |
-| 6 | **Instagram posting** | — | JPEGs → Rube → Instagram API | Auto |
+| 4 | **Carousel HTML** | `carousel.html` | HTML 1080x1080 (via `/create-ui`) | Auto |
+| 5 | **Instagram carousel** | `carousel.gif` | Animated GIF (Playwright → GIF, ~1.5s/slide) | Auto |
+| 6 | **Instagram caption** | `caption-instagram.md` | Caption + hashtags | Auto |
 | 7 | **LinkedIn carousel** | `carousel-linkedin.pdf` | PNGs stitched into PDF | Auto |
 | 8 | **LinkedIn caption** | `caption-linkedin.md` | Post text + hashtags (Shivang's voice) | Auto |
 | 9 | **LinkedIn text post** | Presented in chat | Via `write-linkedin-post` skill | Auto |
 | 10 | **Instagram Reel** | `reel-script.md` | HeyGen-ready video script | Auto |
-| 11 | **WhatsApp** | `whatsapp.md` | Broadcast message (hook + link) | Auto |
-| 12 | **Email** | `email.md` | Newsletter snippet | Auto |
 
-**12 outputs, all auto-generated.** Only manual step: reviewing before publishing.
+**10 outputs, all auto-generated.** Only manual step: reviewing before publishing.
 
 ## LinkedIn 360Brew Layer (April 2026+) — applies to all LinkedIn outputs
 
@@ -80,7 +77,7 @@ LinkedIn's ranking is now driven by 360Brew (150B-param decoder-only foundation 
 
 ### Phase awareness
 
-If `Outreach/content/PHASE.md` exists and contains `audience-build`, OR if the user invokes via `write-linkedin-post` skill which is in audience-build phase: **strip all booking-link CTAs from LinkedIn caption and final carousel slide.** Replace with a substantive question or POV close. Lead-gen-phase CTAs ("Try Mirai free → mirai360.ai") apply only to non-LinkedIn channels (blog, IG, WhatsApp, email) during this phase.
+If `Outreach/content/PHASE.md` exists and contains `audience-build`, OR if the user invokes via `write-linkedin-post` skill which is in audience-build phase: **strip all booking-link CTAs from LinkedIn caption and final carousel slide.** Replace with a substantive question or POV close. Lead-gen-phase CTAs ("Try Mirai free → mirai360.ai") apply only to non-LinkedIn channels (blog, Instagram) during this phase.
 
 ### Bucket tag (LinkedIn outputs only)
 
@@ -106,22 +103,20 @@ Topic
   │     └─→ blog_cms_prep.py → CMS JSON
   │
   ├─→ 2. Carousel slide descriptions (markdown — creative source)
-  │     └─→ /create-ui → HTML (1080x1350 slides)
-  │           ├─→ Playwright → JPEGs → Rube → Instagram
+  │     └─→ /create-ui → HTML (1080x1080 slides)
+  │           ├─→ Playwright → animated GIF (1.5s/slide) → Instagram
   │           └─→ Playwright → PNGs → PDF → LinkedIn carousel
   │
   ├─→ 3. Instagram Reel script (markdown → feed into HeyGen)
   ├─→ 4. Instagram caption (markdown)
-  ├─→ 5. LinkedIn caption (markdown — Shivang's voice)
-  ├─→ 6. WhatsApp broadcast (markdown)
-  └─→ 7. Email snippet (markdown)
+  └─→ 5. LinkedIn caption (markdown — Shivang's voice)
 ```
 
 The markdown slide descriptions are the **single source of truth** for carousel visuals. Both Instagram and LinkedIn carousel reuse the same slides.
 
 ## Global Language Rule — English as Second Language (APPLIES TO ALL CHANNELS)
 
-Our audience is Indian lawyers, advocates, and small-firm practitioners. English is **often their second language**. This rule overrides "clever" phrasing on every channel — blog, carousel, caption, Reel script, WhatsApp, email, LinkedIn post, X post, ads.
+Our audience is Indian lawyers, advocates, and small-firm practitioners. English is **often their second language**. This rule overrides "clever" phrasing on every channel — blog, carousel, caption, Reel script, Instagram, LinkedIn post.
 
 **Write like this:**
 - Short sentences. 8-12 words max per sentence.
@@ -400,10 +395,29 @@ Check the last carousel's slide 1 style and use the opposite:
 - Last was `.slide-light` (Grand White) → new one starts `.slide-dark` (Grand Navy)
 - Last was `.slide-dark` (Grand Navy) → new one starts `.slide-light` (Grand White)
 
-### Publishing Pipeline (automated, separate from content creation)
+### GIF Generation (Instagram)
 
-**Instagram:** HTML → Playwright renders JPEGs → S3 → `INSTAGRAM_CREATE_CAROUSEL_CONTAINER` → publish
-**LinkedIn:** HTML → Playwright renders PNGs → stitch into PDF → upload with caption
+After the HTML is rendered, generate `carousel.gif` using Playwright:
+
+```bash
+# Render each slide to a PNG, then stitch into an animated GIF
+node ~/.claude/skills/content-writer-distributor/scripts/render-gif.js carousel.html carousel.gif --delay 1500
+```
+
+- **Delay:** 1.5 seconds per slide (1500ms)
+- **Canvas:** 1080×1080px per frame
+- **Output:** `carousel.gif` in the content folder
+- If `render-gif.js` is unavailable, render PNGs per slide and instruct the user to stitch them with any GIF tool (e.g., ezgif.com or ImageMagick).
+
+### PDF Generation (LinkedIn)
+
+```bash
+# Render each slide to a PNG, stitch into PDF
+node ~/.claude/skills/content-writer-distributor/scripts/render-pdf.js carousel.html carousel-linkedin.pdf
+```
+
+**Instagram:** HTML → Playwright → animated GIF (`carousel.gif`) → upload to Instagram
+**LinkedIn:** HTML → Playwright → PNGs → PDF (`carousel-linkedin.pdf`) → upload with caption
 
 ## Channel 3: Instagram Reel (HeyGen Script)
 
@@ -449,41 +463,6 @@ Extract the most compelling 30-60 second story from the blog and write a script 
 - **End with CTA** — always "Try Mirai free at mirai360.ai"
 - **No text overlays in script** — HeyGen handles the video; text overlays are added post-production if needed
 
-## Channel 4: WhatsApp Broadcast
-
-```markdown
-# WhatsApp: {Topic}
-- **Date:** YYYY-MM-DD
-
-**Message:**
-{One-line stat or bold claim from the blog}
-
-Read more → mirai360.ai/blog/{slug}
-
-Try Mirai free: mirai360.ai
-```
-
-Rules: max 3 lines, casual tone, 1-2 emojis max.
-
-## Channel 4: Email Snippet
-
-```markdown
-# Email: {Topic}
-- **Date:** YYYY-MM-DD
-
-**Subject line:** {under 50 chars}
-**Preview text:** {under 90 chars}
-
-**Body:**
-{2-3 sentences with one stat, then what the blog covers}
-
-Read the full post → mirai360.ai/blog/{slug}
-
-— Mirai360 Team
-```
-
-Rules: subject under 50 chars, body max 4 sentences, value-first.
-
 ## Process
 
 ### Dates
@@ -492,12 +471,13 @@ Use today's date for all outputs. If user specifies a publish date, use that ins
 ### When called directly:
 1. Clarify topic if vague — "What topic? Specific keyword to target?"
 2. Run **Step 0** — resolve brand colors + fonts from the working directory (or default to Mirai360 and say so), then do the "Before You Write" steps
-3. Write ALL files to `Outreach/content/YYYY-MM-DD-{slug}/` — blog, carousel, captions, WhatsApp, email, linkedin-text-post
-4. Generate carousel HTML via `/create-ui`
-5. Generate LinkedIn PDF from carousel HTML (Playwright → PDF at 1080x1350)
-6. Run `python3 blog_cms_prep.py --content-dir` for CMS JSON (outputs blog.json into content folder)
-7. Create symlinks for SEO + LinkedIn browsing views (see "Symlink Indexes" section)
-8. Report: content folder path + list of all files inside
+3. Write ALL files to `Outreach/content/YYYY-MM-DD-{slug}/` — blog, carousel slides, captions, reel script
+4. Generate carousel HTML via `/create-ui` (1080x1080px)
+5. Generate `carousel.gif` from carousel HTML (Playwright → animated GIF, 1.5s/slide) for Instagram
+6. Generate `carousel-linkedin.pdf` from carousel HTML (Playwright → PNGs → PDF) for LinkedIn
+7. Run `python3 blog_cms_prep.py --content-dir` for CMS JSON (outputs blog.json into content folder)
+8. Create symlinks for SEO + LinkedIn browsing views (see "Symlink Indexes" section)
+9. Report: content folder path + list of all files inside
 
 ### When called by marketing-advisor orchestrator:
 Orchestrator passes a strategy brief (topic, keyword, pillar, stat, angle). Use directly — don't second-guess. Write all outputs to the content folder, create symlinks, report back.

@@ -102,33 +102,130 @@ These came from direct user feedback after basic clarity misses. They are non-ne
 - **Lead with the fact, not the wind-up.** Most consequential thing first.
 - **Every sentence does work.** Delete any sentence that is only a transition.
 
-## Pillar handoff — "India in AI" is now blog-first
+## Pillar handoff — "India in AI Daily" production flow
 
-The "India in AI" weekly series is **blog-first**: the pillar is a Substack newsletter written by [[write-blog-post]], and the LinkedIn output is a **text summary that links back to the Substack post** (link in the first comment, not the body). When the user asks for an India in AI edition or weekly newsletter, lead with `write-blog-post`; this skill owns only the LinkedIn summary's voice and the 360Brew rules. The Digest Mode below still governs that summary's tone.
+When the user asks for an India in AI Daily edition:
 
-## Digest Mode (weekly roundup series — e.g. "India in AI · Signals, not noise")
+1. **Write `daily.md`** in `Outreach/content/YYYY-MM-DD-india-in-ai-daily/` using the Digest Mode template below.
+2. **Call `content-writer-distributor`** to produce the Instagram GIF carousel and LinkedIn PDF carousel from `daily.md` as source material.
+3. **Write the LinkedIn text post** (this skill) as a **standalone** — no external link, no "read more." Extract the single sharpest insight from the Deep Dive and write it as a self-contained post following all Voice, 360Brew, and Clarity Gate rules above.
 
-Use this when synthesising 2–5 developments into one post/blog. This is a documented user-approved tone — apply it for the "India in AI" series and similar digests. It overrides the manufacturing-MD ESL voice for these series, but the Clarity Gate above still applies.
+The Digest Mode section below governs `daily.md` structure and editorial rules. The LinkedIn text post follows the standard post rules in this skill.
+
+## Digest Mode — India In AI Daily
+
+Use this for the daily newsletter (`daily.md`) only. It overrides the manufacturing-MD voice for this format, but the Clarity Gate above still applies.
+
+### Deduplication Rule (run FIRST, before any drafting)
+
+Read the last 3 entries in `Outreach/IndiaInAI_DailyLog.json`. Do not lead with any story already covered. If nothing is genuinely new, write a short edition (Signals only, no Deep Dive) or skip entirely — never re-centre a prior lead.
 
 ### Tone Guide
-- **Voice:** Authoritative but accessible. Assume an intelligent, informed reader. Never condescending. A well-read friend briefing you, not a press release.
-- **Perspective:** Neutral-to-opinionated. Present facts cleanly; let the curation imply the point of view.
-- **Density:** High information density, short sentences. No filler. Every sentence earns its place.
-- **Skepticism:** Quietly embedded. Report a claim, then immediately follow with contradicting data, a caution, or expert pushback.
+- **Voice:** Authoritative but accessible. A well-read friend briefing you, not a press release.
+- **Perspective:** Neutral-to-opinionated. Present facts cleanly; let the curation carry the point of view.
+- **Density:** High information density, short sentences. Every sentence earns its place.
+- **Skepticism:** Quietly embedded. Report a claim, then immediately follow with contradicting data, a caution, or pushback.
 - **Stakes framing:** Never just "X happened." Always "X happened, and here is why it matters."
 
-### Reusable Framework
-1. **Headline** — pack 2–3 storylines into one scannable line. `[Actor] [verb] [outcome], [Actor] [verb] [outcome], and more`. Active verbs, no jargon.
-2. **Deck** — one sentence that expands the headline and sets stakes.
-3. **Story block** (repeat per story): **title** → **Related:** 3–6 source links (titles do the work, no commentary) → **Source:** one canonical link → **body** in 3–5 paragraphs: (1) what happened — who/when/where, pure facts; (2) what was said/revealed — specific numbers, names, quotes; (3) what it means / what's next; (4 optional) counterpoint or complication. Use em-dashes for asides; lead with the newsworthy fact; specific numbers over vague; contrast competing developments explicitly.
-4. **In Brief** — secondary roundup by category (Infra / Models / Policy / Business). **Bold title.** 1–2 present-tense sentences, lead with the most interesting fact. Must be full human sentences, not fragments.
-5. **Close** — minimal. One question or a follow nudge. Don't oversell.
+### Template
 
-### Per-story checklist
-- [ ] Led with the most surprising/consequential fact?
-- [ ] At least 3 specific numbers or named people?
-- [ ] Connected to a larger trend or implication?
-- [ ] Included a dissenting voice or complication?
+```
+# India In AI Daily
+
+Date: {DATE}
+
+## Signal #1: India 🇮🇳
+
+{What happened}
+
+**Why it matters:** {1-2 sentence explanation}
+
+---
+
+## Signal #2: Global 🌍
+
+{What happened}
+
+**Why it matters:** {1-2 sentence explanation}
+
+---
+
+## Signal #3: Industry & Engineering ⚙️
+
+{What happened}
+
+**Why it matters:** {1-2 sentence explanation}
+
+---
+
+## Deep Dive 🔍
+
+{250-500 word analysis of the most important story of the day}
+
+Focus on:
+* What's actually happening
+* Why now
+* Winners
+* Losers
+* Second-order effects
+* What to watch next
+
+---
+
+### One Number
+
+{Most important metric of the day — one sentence, name the source}
+
+---
+
+### Watching Tomorrow
+
+* {Trend 1}
+* {Trend 2}
+* {Trend 3}
+```
+
+### Editorial Rules — What Belongs in Each Signal
+
+**Signal #1 — India**
+Pick one story from: policy, startups, enterprise adoption, infrastructure, talent.
+
+**Signal #2 — Global**
+Pick one story from: OpenAI, Anthropic, Google, Meta, Microsoft, Nvidia, major regulation, major research.
+
+**Signal #3 — Industry & Engineering**
+Rotate each day across: Defence, Manufacturing, Legal, Accounting, Healthcare, Coding/Engineering.
+
+**Deep Dive**
+Must answer: *"If I only read one thing today, what should it be?"*
+The Deep Dive is the differentiator. Every other section can be matched by a news feed — this cannot.
+
+### Example Headlines (reference for tone and specificity)
+
+**India**
+- India's AI City Is More Important Than It Looks
+- Sarvam Is Quietly Building India's AI Stack
+- India's Compute Race Is Heating Up
+
+**Global**
+- OpenAI's Revenue Growth Changes The Game
+- Google Is Turning Gemini Into An Operating System
+- Nvidia's Next Battle Isn't Chips
+
+**Industry & Engineering**
+- AI Is Finally Reaching Factory Floors
+- Defence Startups Are Becoming AI Companies
+- Legal Copilots Move Beyond Drafting
+
+### North Star
+
+Every issue should make the reader feel: *"I now understand something important about AI that most people missed."*
+
+### Per-Signal Checklist
+- [ ] Led with the most surprising or consequential fact?
+- [ ] At least 2 specific numbers or named people?
+- [ ] "Why it matters" names the actual consequence — not a restatement of what happened?
+- [ ] Story not already covered in the last 3 log entries?
 - [ ] Is every sentence doing work?
 
 ---
