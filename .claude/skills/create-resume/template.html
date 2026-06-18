@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 10.5pt;
+    color: #000;
+    background: #fff;
+    padding: 0.65in 0.7in 0.65in 0.7in;
+    line-height: 1.35;
+  }
+  .name {
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .contact {
+    text-align: center;
+    font-size: 10pt;
+    margin-bottom: 10px;
+  }
+  hr {
+    border: none;
+    border-top: 1.5px solid #000;
+    margin: 6px 0;
+  }
+  .section-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 11pt;
+    margin: 2px 0;
+  }
+  .role-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 12.5pt;
+    margin: 3px 0;
+  }
+  .summary {
+    text-align: justify;
+    margin: 8px 0 6px 0;
+    font-size: 10.5pt;
+  }
+  .competencies {
+    text-align: justify;
+    margin: 6px 0;
+    font-size: 10.5pt;
+  }
+  .company-block {
+    margin-bottom: 10px;
+  }
+  .company-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .company-name {
+    font-weight: bold;
+    font-size: 10.5pt;
+  }
+  .role-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 1px;
+  }
+  .role-info {
+    font-style: italic;
+    font-size: 10.5pt;
+  }
+  .date {
+    font-size: 10pt;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  .intro {
+    font-style: italic;
+    margin: 4px 0;
+    font-size: 10.5pt;
+    text-align: justify;
+  }
+  ul {
+    margin: 4px 0 0 18px;
+  }
+  ul li {
+    margin-bottom: 3px;
+    text-align: justify;
+  }
+  .edu-line {
+    margin-bottom: 3px;
+    font-size: 10.5pt;
+  }
+  @page {
+    size: letter;
+    margin: 0;
+  }
+  @media print {
+    body { padding: 0.65in 0.7in 0.65in 0.7in; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="name">SHIVANG PATEL</div>
+<div class="contact">+917862921332 &bull; shivang.patel@gmail.com &bull; Bengaluru, India &bull; Open to Relocate</div>
+
+<!-- ROLE TITLE (change per JD) -->
+<hr>
+<div class="role-title">{{ROLE_TITLE}}</div>
+<hr>
+
+<!-- SUMMARY — justified paragraph, no section label -->
+<p class="summary">
+{{SUMMARY}}
+</p>
+
+<!-- CORE COMPETENCIES — comma-separated flat list, no bullets, no sub-headers -->
+<hr>
+<div class="section-title">Core Competencies</div>
+<hr>
+<p class="competencies">
+{{COMPETENCIES}}
+</p>
+
+<!-- WORK EXPERIENCE -->
+<hr>
+<div class="section-title">Work Experience</div>
+<hr>
+
+<!-- COMPANY BLOCK PATTERN (repeat per role):
+  - WALMART / senior roles: bold-label bullets → <li><strong>Label:</strong> text</li>
+  - FOSSIL: plain bullets → <li>text</li>
+  - MAXIM (oldest role): intro paragraph only, no <ul>
+-->
+
+<!-- WALMART -->
+<div class="company-block">
+  <div class="company-header">
+    <span class="company-name">WALMART GLOBAL TECH, United States</span>
+  </div>
+  <div class="role-line">
+    <span class="role-info">Product Lead, Sunnyvale, CA &gt;&gt; Bengaluru, India</span>
+    <span class="date">May 2022 - Present</span>
+  </div>
+  <p class="intro">{{WALMART_INTRO}}</p>
+  <ul>
+    {{WALMART_BULLETS}}
+  </ul>
+</div>
+
+<!-- FOSSIL -->
+<div class="company-block">
+  <div class="company-header">
+    <span class="company-name">Fossil Group, United States</span>
+  </div>
+  <div class="role-line">
+    <span class="role-info">Group Product Manager, San Jose, CA</span>
+    <span class="date">Jul 2019 - May 2022</span>
+  </div>
+  <p class="intro">{{FOSSIL_INTRO}}</p>
+  <ul>
+    {{FOSSIL_BULLETS}}
+  </ul>
+</div>
+
+<!-- PENTAIR -->
+<div class="company-block">
+  <div class="company-header">
+    <span class="company-name">PENTAIR PLC, United States</span>
+  </div>
+  <div class="role-line">
+    <span class="role-info">Product Manager - Connected Devices, San Jose, CA</span>
+    <span class="date">Mar 2018 - Jul 2019</span>
+  </div>
+  <p class="intro">{{PENTAIR_INTRO}}</p>
+  <ul>
+    {{PENTAIR_BULLETS}}
+  </ul>
+</div>
+
+<!-- AIROSENSE -->
+<div class="company-block">
+  <div class="company-header">
+    <span class="company-name">AIROSENSE TECHNOLOGIES (ALCODEX PVT. LTD.), India</span>
+  </div>
+  <div class="role-line">
+    <span class="role-info">Co-Founder &amp; Product Manager</span>
+    <span class="date">Jan 2014 - Mar 2018</span>
+  </div>
+  <p class="intro">{{AIROSENSE_INTRO}}</p>
+  <ul>
+    {{AIROSENSE_BULLETS}}
+  </ul>
+</div>
+
+<!-- MAXIM — intro paragraph only, no bullets -->
+<div class="company-block">
+  <div class="company-header">
+    <span class="company-name">Maxim Integrated Products, mSilica, Atmel, Kinetic Technologies, United States</span>
+  </div>
+  <div class="role-line">
+    <span class="role-info">Engineering Operations Leader</span>
+    <span class="date">2003 - 2014</span>
+  </div>
+  <p class="intro">Led cross-functional global teams across engineering, product management, reliability, and sales; managed OEM/ODM relationships and manufacturing vendor partnerships. Established production KPIs and deployed internal analytics tool — estimated 10% operating cost savings. Built technical foundation in test development, six-sigma analysis, and data analytics across 10+ products.</p>
+</div>
+
+<!-- EDUCATION -->
+<hr>
+<div class="section-title">Education</div>
+<hr>
+<div class="edu-line">Massachusetts Institute of Technology, United States, Executive Program, 2018</div>
+<div class="edu-line">San Jose State University, San Jose, CA, United States, Master of Science, 2002 - 2004</div>
+<div class="edu-line">Santa Clara University, Santa Clara, CA, United States, Master of Business Administration, 2010 - 2013</div>
+
+</body>
+</html>
